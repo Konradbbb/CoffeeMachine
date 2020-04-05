@@ -1,7 +1,7 @@
-package MaszynaDoKawyFABRYKA.Akcje;
+package coffeeMachine.action;
 
-import MaszynaDoKawyFABRYKA.ScannerAndPrint.InputScannerImpl;
-import MaszynaDoKawyFABRYKA.ScannerAndPrint.PrinterImpl;
+import coffeeMachine.scannerAndPrint.InputScannerImpl;
+import coffeeMachine.scannerAndPrint.PrinterImpl;
 
 public class Back extends Actions {
 

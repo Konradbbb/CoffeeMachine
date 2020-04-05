@@ -1,20 +1,21 @@
-package MaszynaDoKawyFABRYKA.Akcje;
+package coffeeMachine.action;
 
-import MaszynaDoKawyFABRYKA.Main.KawaMain;
-import MaszynaDoKawyFABRYKA.ScannerAndPrint.InputScanner;
-import MaszynaDoKawyFABRYKA.ScannerAndPrint.Printer;
+import coffeeMachine.main.CoffeeMain;
+import coffeeMachine.scannerAndPrint.InputScanner;
+import coffeeMachine.scannerAndPrint.InputScannerImpl;
+import coffeeMachine.scannerAndPrint.Printer;
 
 import java.util.Scanner;
 
-public class Actions extends KawaMain implements InputScanner, Printer {
+public class Actions extends CoffeeMain {
 
     Scanner scanner = new Scanner(System.in);
 
-    public void getAction() {
-    }
+    public void getAction(){};
 
-    public String  getInputString() {
-        String  input = scanner.nextLine();
+
+    public String getInputString() {
+        String input = scanner.nextLine();
         return input;
     }
 
@@ -23,7 +24,7 @@ public class Actions extends KawaMain implements InputScanner, Printer {
         return input;
     }
 
-    public Double getInputDouble(){
+    public Double getInputDouble() {
         double input = scanner.nextDouble();
         return input;
     }
@@ -38,15 +39,15 @@ public class Actions extends KawaMain implements InputScanner, Printer {
         System.out.println("Not enough water");
     }
 
-    public void notEnoughMilk(){
+    public void notEnoughMilk() {
         System.out.println("Not enough milk");
     }
 
-    public void notEnoughBeans(){
+    public void notEnoughBeans() {
         System.out.println("Not enough coffee beans");
     }
 
-    public void notEnoughCups(){
+    public void notEnoughCups() {
         System.out.println("Not enough cups");
     }
 

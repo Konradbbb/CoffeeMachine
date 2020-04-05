@@ -1,33 +1,33 @@
-package MaszynaDoKawyFABRYKA.Main;
+package coffeeMachine.main;
 
-import MaszynaDoKawyFABRYKA.Akcje.*;
-import MaszynaDoKawyFABRYKA.ScannerAndPrint.InputScannerImpl;
-import MaszynaDoKawyFABRYKA.ScannerAndPrint.PrinterImpl;
+import coffeeMachine.action.*;
+import coffeeMachine.scannerAndPrint.InputScannerImpl;
+import coffeeMachine.scannerAndPrint.PrinterImpl;
 
-public class KawaMain {
+public class CoffeeMain {
 
 
     public static void main(String[] args) {
 
-        KawaMain kawa = new KawaMain();
+        CoffeeMain kawa = new CoffeeMain();
         PrinterImpl menu = new PrinterImpl();
         menu.mainMenuOptions();
         kawa.chooseAction(new InputScannerImpl().getInputString()).getAction();
     }
 
 
-    public Actions chooseAction(String action){
+    public Actions chooseAction(String action) {
         Actions actions = null;
 
-        if (action.equals("buy")){
+        if (action.equals("buy")) {
             actions = new Buy();
-        } else if (action.equals("remaining")){
+        } else if (action.equals("remaining")) {
             actions = new Remaining();
-        } else if (action.equals("exit")){
+        } else if (action.equals("exit")) {
             actions = new Exit();
-        } else if (action.equals("fill")){
+        } else if (action.equals("fill")) {
             actions = new Fill();
-        } else if (action.equals("take")){
+        } else if (action.equals("take")) {
             actions = new TakeMoney();
         } else {
             System.out.println("Wrong action! \n");

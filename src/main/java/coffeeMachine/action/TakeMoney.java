@@ -1,7 +1,8 @@
-package MaszynaDoKawyFABRYKA.Akcje;
+package coffeeMachine.action;
 
 public class TakeMoney extends Actions{
 
+    @Override
     public void getAction(){
 
         String password = "KopaMaTaKawa";

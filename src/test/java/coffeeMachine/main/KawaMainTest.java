@@ -1,12 +1,10 @@
-package MaszynaDoKawyFABRYKA.Main;
+package coffeeMachine.main;
 
-import MaszynaDoKawyFABRYKA.Akcje.*;
-import MaszynaDoKawyFABRYKA.ScannerAndPrint.InputScannerImpl;
-import MaszynaDoKawyFABRYKA.ScannerAndPrint.PrinterImpl;
+import coffeeMachine.action.*;
+import coffeeMachine.scannerAndPrint.InputScannerImpl;
+import coffeeMachine.scannerAndPrint.PrinterImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class KawaMainTest {
 
@@ -21,7 +19,7 @@ class KawaMainTest {
     InputScannerImpl inputScanner = Mockito.mock(InputScannerImpl.class);
     PrinterImpl printer = Mockito.mock(PrinterImpl.class);
 
-    KawaMain tested = new KawaMain();
+    CoffeeMain tested = new CoffeeMain();
     Actions testedActions = new Actions();
 
     @Test
