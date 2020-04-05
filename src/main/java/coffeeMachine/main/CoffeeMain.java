@@ -10,8 +10,7 @@ public class CoffeeMain {
     public static void main(String[] args) {
 
         CoffeeMain kawa = new CoffeeMain();
-        PrinterImpl menu = new PrinterImpl();
-        menu.mainMenuOptions();
+        new PrinterImpl().mainMenuOptions();
         kawa.chooseAction(new InputScannerImpl().getInputString()).getAction();
     }
 
@@ -20,18 +19,18 @@ public class CoffeeMain {
         Actions actions = null;
 
         if (action.equals("buy")) {
-            actions = new Buy();
+            actions = new Buy(new InputScannerImpl(), new PrinterImpl());
         } else if (action.equals("remaining")) {
-            actions = new Remaining();
+            actions = new Remaining(new InputScannerImpl(), new PrinterImpl());
         } else if (action.equals("exit")) {
-            actions = new Exit();
+            actions = new Exit(new InputScannerImpl(), new PrinterImpl());
         } else if (action.equals("fill")) {
-            actions = new Fill();
+            actions = new Fill(new InputScannerImpl(), new PrinterImpl());
         } else if (action.equals("take")) {
-            actions = new TakeMoney();
+            actions = new TakeMoney(new InputScannerImpl(), new PrinterImpl());
         } else {
             System.out.println("Wrong action! \n");
-            Back back = new Back();
+            Back back = new Back(new InputScannerImpl(), new PrinterImpl());
             back.getAction();
         }
         return actions;

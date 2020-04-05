@@ -1,6 +1,13 @@
 package coffeeMachine.action;
 
+import coffeeMachine.scannerAndPrint.InputScannerImpl;
+import coffeeMachine.scannerAndPrint.PrinterImpl;
+
 public class Remaining extends Actions {
+
+    public Remaining(InputScannerImpl inputScanner, PrinterImpl printer) {
+        super(inputScanner, printer);
+    }
 
     public enum Resources {
         WATER(1300),
@@ -33,7 +40,7 @@ public class Remaining extends Actions {
                 + Resources.CUPS.getRecourcesLeft() + " cups \n"
                 + Resources.MONEY.getRecourcesLeft() + "$ \n");
 
-        Back back = new Back();
+        Back back = new Back(inputScanner, printer);
         back.getAction();
     }
 

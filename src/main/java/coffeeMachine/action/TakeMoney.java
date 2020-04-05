@@ -1,6 +1,13 @@
 package coffeeMachine.action;
 
+import coffeeMachine.scannerAndPrint.InputScannerImpl;
+import coffeeMachine.scannerAndPrint.PrinterImpl;
+
 public class TakeMoney extends Actions{
+
+    public TakeMoney(InputScannerImpl inputScanner, PrinterImpl printer) {
+        super(inputScanner, printer);
+    }
 
     @Override
     public void getAction(){
@@ -9,7 +16,7 @@ public class TakeMoney extends Actions{
         System.out.println("Write password: ");
 
         for (int i = 0; i < 3; i++) {
-            if (getInputString().equals(password)) {
+            if (new InputScannerImpl().getInputString().equals(password)) {
                 System.out.println("I gave you " + Remaining.Resources.MONEY.getRecourcesLeft() + "$ \n");
                 Remaining.Resources.MONEY.setRecourcesLeft(0);
                 break;
@@ -18,7 +25,7 @@ public class TakeMoney extends Actions{
             }
             }
 
-        Back back = new Back();
+        Back back = new Back(inputScanner, printer);
         back.getAction();
         }
 
