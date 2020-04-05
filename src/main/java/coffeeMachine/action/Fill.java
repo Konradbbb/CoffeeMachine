@@ -1,9 +1,9 @@
-package MaszynaDoKawyFABRYKA.Akcje;
+package coffeeMachine.action;
 
 public class Fill extends Actions {
 
-
-    public void getAction(){
+    @Override
+    public void getAction() {
 
         System.out.println("Add water: ");
         Remaining.Resources.WATER.setRecourcesLeft(getInputInt() + Remaining.Resources.WATER.getRecourcesLeft());
