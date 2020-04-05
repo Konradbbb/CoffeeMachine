@@ -20,7 +20,7 @@ class KawaMainTest {
     PrinterImpl printer = Mockito.mock(PrinterImpl.class);
 
     CoffeeMain tested = new CoffeeMain();
-    Actions testedActions = new Actions();
+    Actions testedActions = new Actions(new InputScannerImpl(), new PrinterImpl());
 
     @Test
     public void chooseAction(){

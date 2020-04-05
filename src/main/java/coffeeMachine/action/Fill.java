@@ -1,23 +1,30 @@
 package coffeeMachine.action;
 
+import coffeeMachine.scannerAndPrint.InputScannerImpl;
+import coffeeMachine.scannerAndPrint.PrinterImpl;
+
 public class Fill extends Actions {
+
+    public Fill(InputScannerImpl inputScanner, PrinterImpl printer) {
+        super(inputScanner, printer);
+    }
 
     @Override
     public void getAction() {
 
         System.out.println("Add water: ");
-        Remaining.Resources.WATER.setRecourcesLeft(getInputInt() + Remaining.Resources.WATER.getRecourcesLeft());
+        Remaining.Resources.WATER.setRecourcesLeft(new InputScannerImpl().getInputInt() + Remaining.Resources.WATER.getRecourcesLeft());
 
         System.out.println("Add milk: ");
-        Remaining.Resources.MILK.setRecourcesLeft(getInputInt() + Remaining.Resources.MILK.getRecourcesLeft());
+        Remaining.Resources.MILK.setRecourcesLeft(new InputScannerImpl().getInputInt() + Remaining.Resources.MILK.getRecourcesLeft());
 //
         System.out.println("Add coffee bean: ");
-        Remaining.Resources.COFFEBEANS.setRecourcesLeft(getInputInt() + Remaining.Resources.COFFEBEANS.getRecourcesLeft());
+        Remaining.Resources.COFFEBEANS.setRecourcesLeft(new InputScannerImpl().getInputInt() + Remaining.Resources.COFFEBEANS.getRecourcesLeft());
 
         System.out.println("Add cups: ");
-        Remaining.Resources.CUPS.setRecourcesLeft(getInputInt() + Remaining.Resources.CUPS.getRecourcesLeft());
+        Remaining.Resources.CUPS.setRecourcesLeft(new InputScannerImpl().getInputInt() + Remaining.Resources.CUPS.getRecourcesLeft());
 
-        Back back = new Back();
+        Back back = new Back(inputScanner, printer);
         back.getAction();
     }
 

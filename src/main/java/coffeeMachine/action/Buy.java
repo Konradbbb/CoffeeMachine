@@ -1,5 +1,8 @@
 package coffeeMachine.action;
 
+import coffeeMachine.scannerAndPrint.InputScannerImpl;
+import coffeeMachine.scannerAndPrint.PrinterImpl;
+
 import java.util.Scanner;
 
 public class Buy extends Actions {
@@ -8,6 +11,9 @@ public class Buy extends Actions {
     Remaining.Resources resources;
     private double giveMoney;
 
+    public Buy(InputScannerImpl inputScanner, PrinterImpl printer) {
+        super(inputScanner, printer);
+    }
 
     public enum CoffeType {
         LATTE(100, 200, 10, 1, 7),
@@ -51,7 +57,7 @@ public class Buy extends Actions {
 
     public Double giveMeMoney() {
         System.out.println("Give me money: ");
-        return giveMoney = getInputDouble();
+        return giveMoney = new InputScannerImpl().getInputDouble();
     }
 
     public void changeMoney(String string) {
@@ -77,7 +83,7 @@ public class Buy extends Actions {
             }
 
         } else {
-            System.out.println("Not enough money");
+            new PrinterImpl().notEnoughMoney();
         }
         System.out.println("Your change: " + giveMoney + "\n");
     }
@@ -86,33 +92,32 @@ public class Buy extends Actions {
     public void getAction() {
 
         giveMeMoney();
-        System.out.println("Choose coffee type : \n 1. Latte \n 2. Cappucino \n 3. Espresso \n 4. Back");
-        Scanner sc = new Scanner(System.in);
-        String choose = sc.nextLine();
+        new PrinterImpl().buyPrint();
+        String choose = new InputScannerImpl().getInputString();
 
         switch (choose) {
             case "1":
                 if (resources.WATER.getRecourcesLeft() >= coffeType.LATTE.getWater()) {
                     resources.WATER.recourcesLeft -= coffeType.LATTE.getWater();
                 } else {
-                    notEnoughWater();
+                    new PrinterImpl().notEnoughWater();
                     break;
                 }
                 if (resources.MILK.getRecourcesLeft() >= coffeType.LATTE.getMilk()) {
                     resources.MILK.recourcesLeft -= coffeType.LATTE.getMilk();
                 } else {
-                    notEnoughMilk();
+                    new PrinterImpl().notEnoughMilk();
                     break;
                 }
                 if (resources.COFFEBEANS.getRecourcesLeft() >= coffeType.LATTE.getCoffeBeans()) {
                     resources.COFFEBEANS.recourcesLeft -= coffeType.LATTE.getCoffeBeans();
                 } else {
-                    notEnoughBeans();
+                    new PrinterImpl().notEnoughBeans();
                 }
                 if (resources.CUPS.getRecourcesLeft() >= coffeType.LATTE.getCups()) {
                     resources.CUPS.recourcesLeft -= coffeType.LATTE.getCups();
                 } else {
-                    notEnoughCups();
+                    new PrinterImpl().notEnoughCups();
                     break;
                 }
                 resources.MONEY.recourcesLeft += coffeType.LATTE.getCost();
@@ -123,25 +128,25 @@ public class Buy extends Actions {
                 if (resources.WATER.getRecourcesLeft() >= coffeType.CAPPUCINO.getWater()) {
                     resources.WATER.recourcesLeft -= coffeType.CAPPUCINO.getWater();
                 } else {
-                    notEnoughWater();
+                    new PrinterImpl().notEnoughWater();
                     break;
                 }
                 if (resources.MILK.getRecourcesLeft() >= coffeType.CAPPUCINO.getMilk()) {
                     resources.MILK.recourcesLeft -= coffeType.CAPPUCINO.getMilk();
                 } else {
-                    notEnoughMilk();
+                    new PrinterImpl().notEnoughMilk();
                     break;
                 }
                 if (resources.COFFEBEANS.getRecourcesLeft() >= coffeType.CAPPUCINO.getCoffeBeans()) {
                     resources.COFFEBEANS.recourcesLeft -= coffeType.CAPPUCINO.getCoffeBeans();
                 } else {
-                    notEnoughBeans();
+                    new PrinterImpl().notEnoughBeans();
                     break;
                 }
                 if (resources.CUPS.getRecourcesLeft() >= coffeType.CAPPUCINO.getCups()) {
                     resources.CUPS.recourcesLeft -= coffeType.CAPPUCINO.getCups();
                 } else {
-                    notEnoughCups();
+                    new PrinterImpl().notEnoughCups();
                     break;
                 }
                 resources.MONEY.recourcesLeft += coffeType.CAPPUCINO.getCost();
@@ -152,25 +157,25 @@ public class Buy extends Actions {
                 if (resources.WATER.getRecourcesLeft() >= coffeType.ESPRESSO.getWater()) {
                     resources.WATER.recourcesLeft -= coffeType.ESPRESSO.getWater();
                 } else {
-                    notEnoughWater();
+                    new PrinterImpl().notEnoughWater();
                     break;
                 }
                 if (resources.MILK.getRecourcesLeft() >= coffeType.ESPRESSO.getMilk()) {
                     resources.MILK.recourcesLeft -= coffeType.ESPRESSO.getMilk();
                 } else {
-                    notEnoughMilk();
+                    new PrinterImpl().notEnoughMilk();
                     break;
                 }
                 if (resources.COFFEBEANS.getRecourcesLeft() >= coffeType.ESPRESSO.getCoffeBeans()) {
                     resources.COFFEBEANS.recourcesLeft -= coffeType.ESPRESSO.getCoffeBeans();
                 } else {
-                    notEnoughBeans();
+                    new PrinterImpl().notEnoughBeans();
                     break;
                 }
                 if (resources.CUPS.getRecourcesLeft() >= coffeType.ESPRESSO.getCups()) {
                     resources.CUPS.recourcesLeft -= coffeType.ESPRESSO.getCups();
                 } else {
-                    notEnoughCups();
+                    new PrinterImpl().notEnoughCups();
                     break;
                 }
                 resources.MONEY.recourcesLeft += coffeType.ESPRESSO.getCost();
@@ -181,7 +186,7 @@ public class Buy extends Actions {
                 break;
         }
 
-        Back back = new Back();
+        Back back = new Back(inputScanner,printer);
         back.getAction();
 
     }
