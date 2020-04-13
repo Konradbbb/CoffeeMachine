@@ -3,9 +3,7 @@ package coffeeMachine.action;
 import coffeeMachine.scannerAndPrint.InputScannerImpl;
 import coffeeMachine.scannerAndPrint.PrinterImpl;
 
-import java.util.Scanner;
-
-public class Buy extends Actions {
+public class Buy extends MachineAction {
 
     CoffeType coffeType;
     Remaining.Resources resources;
@@ -83,7 +81,7 @@ public class Buy extends Actions {
             }
 
         } else {
-            new PrinterImpl().notEnoughMoney();
+            printer.notEnoughMoney();
         }
         System.out.println("Your change: " + giveMoney + "\n");
     }
@@ -106,7 +104,7 @@ public class Buy extends Actions {
                 if (resources.MILK.getRecourcesLeft() >= coffeType.LATTE.getMilk()) {
                     resources.MILK.recourcesLeft -= coffeType.LATTE.getMilk();
                 } else {
-                    new PrinterImpl().notEnoughMilk();
+                    printer.notEnoughMilk();
                     break;
                 }
                 if (resources.COFFEBEANS.getRecourcesLeft() >= coffeType.LATTE.getCoffeBeans()) {

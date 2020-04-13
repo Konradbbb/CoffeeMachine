@@ -15,12 +15,12 @@ class KawaMainTest {
     TakeMoney takeMoney = Mockito.mock(TakeMoney.class);
     Back back = Mockito.mock(Back.class);
     Exit exit = Mockito.mock(Exit.class);
-    Actions actions = Mockito.mock(Actions.class);
+    MachineAction machineAction = Mockito.mock(MachineAction.class);
     InputScannerImpl inputScanner = Mockito.mock(InputScannerImpl.class);
     PrinterImpl printer = Mockito.mock(PrinterImpl.class);
 
     CoffeeMain tested = new CoffeeMain();
-    Actions testedActions = new Actions(new InputScannerImpl(), new PrinterImpl());
+    MachineAction testedMachineAction = new MachineAction(new InputScannerImpl(), new PrinterImpl());
 
     @Test
     public void chooseAction(){
@@ -33,7 +33,7 @@ class KawaMainTest {
     public void chooseCoffeAction(){
         Mockito.when(inputScanner.getInputString()).thenReturn("buy");
         tested.chooseAction("buy");
-        testedActions.getAction();
+        testedMachineAction.getAction();
         Mockito.verify(buy);
     }
 

@@ -4,14 +4,14 @@ import coffeeMachine.main.CoffeeMain;
 import coffeeMachine.scannerAndPrint.InputScannerImpl;
 import coffeeMachine.scannerAndPrint.PrinterImpl;
 
-public class Actions extends CoffeeMain {
+public class MachineAction extends CoffeeMain {
+
+    protected final InputScannerImpl inputScanner;
+    protected final PrinterImpl printer;
 
     public void getAction(){};
 
-    InputScannerImpl inputScanner;
-    PrinterImpl printer;
-
-    public Actions(InputScannerImpl inputScanner, PrinterImpl printer) {
+    public MachineAction(InputScannerImpl inputScanner, PrinterImpl printer) {
         this.inputScanner = inputScanner;
         this.printer = printer;
     }
