@@ -3,7 +3,7 @@ package coffeeMachine.action;
 import coffeeMachine.scannerAndPrint.InputScannerImpl;
 import coffeeMachine.scannerAndPrint.PrinterImpl;
 
-public class Remaining extends Actions {
+public class Remaining extends MachineAction {
 
     public Remaining(InputScannerImpl inputScanner, PrinterImpl printer) {
         super(inputScanner, printer);
