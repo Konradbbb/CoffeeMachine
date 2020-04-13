@@ -1,4 +1,6 @@
-# The machine works with typical products: coffee, milk, coffee beans and plastic cups. 
+# Coffee Machine
+
+The machine works with typical products: coffee, milk, coffee beans and plastic cups. 
 It also collect and return money (depends of option you have choosen). 
 
 You can:
