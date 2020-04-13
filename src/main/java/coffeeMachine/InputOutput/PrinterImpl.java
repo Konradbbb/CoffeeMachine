@@ -1,4 +1,4 @@
-package coffeeMachine.scannerAndPrint;
+package coffeeMachine.InputOutput;
 
 public class PrinterImpl implements Printer {
 

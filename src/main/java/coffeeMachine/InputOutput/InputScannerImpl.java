@@ -1,4 +1,4 @@
-package coffeeMachine.scannerAndPrint;
+package coffeeMachine.InputOutput;
 
 import java.util.Scanner;
 

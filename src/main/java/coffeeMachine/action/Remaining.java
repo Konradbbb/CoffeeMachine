@@ -1,7 +1,7 @@
 package coffeeMachine.action;
 
-import coffeeMachine.scannerAndPrint.InputScannerImpl;
-import coffeeMachine.scannerAndPrint.PrinterImpl;
+import coffeeMachine.InputOutput.InputScannerImpl;
+import coffeeMachine.InputOutput.PrinterImpl;
 
 public class Remaining extends MachineAction {
 
